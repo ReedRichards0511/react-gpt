@@ -1,4 +1,6 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
+import { AssistantPage, AudioToTextPage, ImageGenerationPage, ImageTunningPage, OrhtographyPage, PropsConsPage, ProsConsStreamPage, TextToAudioPage, TranslatePage } from "../pages";
+import { DashboardLayout } from "../layouts/DashboardLayout";
 
 export const menuRoutes = [
     {
@@ -6,14 +8,14 @@ export const menuRoutes = [
       icon: "fa-solid fa-spell-check",
       title: "Ortografía",
       description: "Corregir ortografía",
-      component: <OrthographyPage />
+      component: <OrhtographyPage />
     },
     {
       to: "/pros-cons",
       icon: "fa-solid fa-code-compare",
       title: "Pros & Cons",
       description: "Comparar pros y contras",
-      component: <ProsConsPage />
+      component: <PropsConsPage />
     },
     {
       to: "/pros-cons-stream",
@@ -70,7 +72,16 @@ export const menuRoutes = [
 export const router = createBrowserRouter([
     {
         path: "/",
-        element:
-        children:[]
+        element: <DashboardLayout/>,
+        children:[
+            ...menuRoutes.map((route) => ({
+                path: route.to,
+                element: route.component
+            })),
+            {
+                path: "",
+                element: <Navigate to={menuRoutes[0].to} />
+            }
+        ],
     }
 ])
