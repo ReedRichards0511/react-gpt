@@ -2,6 +2,6 @@ import React from 'react'
 
 export const ReactGPT = () => {
   return (
-    <h1>ReactGPT</h1>
+    <h1 className='fade-in text-6xl underline font-semibold'>ReactGPT</h1>
   )
 }
