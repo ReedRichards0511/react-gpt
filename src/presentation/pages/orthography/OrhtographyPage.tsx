@@ -1,4 +1,4 @@
-import { GPTMessage, MyMessage } from "../../components"
+import { GPTMessage, MyMessage, TypingLoader } from "../../components"
 
 export const OrhtographyPage = () => {
   return (
@@ -10,6 +10,8 @@ export const OrhtographyPage = () => {
 
           <GPTMessage text="¡Hola! Soy un modelo de lenguaje de OpenAI y estoy aquí para ayudarte con tus dudas de ortografía. ¿En qué puedo ayudarte hoy?" />
           <MyMessage text ="hola mundo"/>
+        
+          <TypingLoader className="fade-in"/>
         </div>
       </div>
     </div>
